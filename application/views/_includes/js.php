@@ -13,7 +13,3 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url('js/sb-admin-2.js'); ?>"></script>
-
-    <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/datatables-plugins/dataTables.bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/datatables-responsive/dataTables.responsive.js'); ?>"></script>

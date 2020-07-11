@@ -104,10 +104,22 @@
 	<?php $this->load->view('_includes/scroll-up'); ?>
 	<!-- js -->
 	<?php $this->load->view('_includes/js'); ?>
+	<script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/datatables-plugins/dataTables.bootstrap.min.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/datatables-responsive/dataTables.responsive.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('assets/datatables/js/dataTables.buttons.min.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('assets/datatables/js/jszip.min.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('assets/datatables/js/pdfmake.min.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('assets/datatables/js/vfs_fonts.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('assets/datatables/js/buttons.html5.min.js'); ?>"></script>
 	<script>
 		$(document).ready(function () {
 			$('#datatables').DataTable({
-				responsive: true
+				responsive: true,
+				dom: 'Bfrtip',
+				buttons: [
+	        'excel'
+	      ]
 			});
 		});
 		
