@@ -39,7 +39,7 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('success','User berhasil ditambahkan!');
 		}
 
-		$this->load->view('bukutamu/register');
+		$this->load->view('user/register');
 	}
 
 	public function editProfile() {

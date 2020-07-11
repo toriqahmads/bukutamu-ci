@@ -14,6 +14,11 @@
 				<?php $this->load->view('_includes/breadcrumb'); ?>
 				<div class="col-lg-12">
 					<h1 class="page-header">Edit profil</h1>
+					<?php if($this->session->flashdata('success')) : ?>
+					<div class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>
+					</div>
+					<?php endif; ?>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -26,11 +31,6 @@
 								<!-- /.col-lg-6 (nested) -->
 								<div class="col-lg-6">
 									<h1>Ubah profil</h1>
-									<?php if($this->session->flashdata('success')) : ?>
-									<div class="alert alert-success alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>
-									</div>
-									<?php endif; ?>
 									<form role="form" action="<?php echo base_url('user/editProfile'); ?>" method="post" enctype="multipart/form-data">
 										<input type="hidden" name="id" value="<?php echo $user->id; ?>">
 										<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">

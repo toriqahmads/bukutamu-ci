@@ -14,6 +14,11 @@
 				<?php $this->load->view('_includes/breadcrumb'); ?>
 				<div class="col-lg-12">
 					<h1 class="page-header">Tambah User Baru</h1>
+					<?php if($this->session->flashdata('success')) : ?>
+					<div class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>
+					</div>
+					<?php endif; ?>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -29,11 +34,6 @@
 								<form role="form" action="<?php echo base_url('user/addNew') ?>" method="post" enctype="multipart/form-data">
 								<!-- /.col-lg-6 (nested) -->
 								<div class="col-lg-6">
-									<?php if($this->session->flashdata('success')) : ?>
-									<div class="alert alert-success alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>
-									</div>
-									<?php endif; ?>
 									<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 									<div class="form-group <?php echo form_error('name') ? 'has-error' : '' ?>">
 										<label class="control-label">Nama lengkap* :</label>

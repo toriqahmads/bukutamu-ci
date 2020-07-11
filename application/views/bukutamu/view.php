@@ -27,11 +27,6 @@
 							<div class="row">
 								<!-- /.col-lg-6 (nested) -->
 								<div class="col-lg-6">
-									<?php if($this->session->flashdata('success')) : ?>
-									<div class="alert alert-success alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>
-									</div>
-									<?php endif; ?>
 										<div class="form-group <?php echo form_error('kode') ? 'has-error' : '' ?>">
 											<label class="control-label">Kode* :</label>
 											<input type="text" name="kode" class="form-control" id="<?php echo form_error('kode') ? 'inputWarning' : '' ?>" placeholder="Kode" value="<?php echo $bukutamu->kode; ?>" readonly>
