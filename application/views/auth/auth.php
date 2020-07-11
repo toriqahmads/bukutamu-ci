@@ -24,14 +24,14 @@
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 <div class="form-group <?php echo form_error('username') ? 'has-error' : '' ?>">
                                     <label class="control-label">Username* :</label>
-                                        <input type="username" name="username" class="form-control" id="<?php echo form_error('username') ? 'inputWarning' : '' ?>" placeholder="Username">
+                                        <input type="username" name="username" class="form-control <?php echo form_error('username') ? 'inputWarning' : '' ?>" id="username" placeholder="Username">
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('email') ?>
+                                        <?php echo form_error('username') ?>
                                     </div>
                                 </div>
                                 <div class="form-group <?php echo form_error('password') ? 'has-error' : '' ?>">
                                         <label class="control-label">Password* :</label>
-                                        <input type="password" name="password" class="form-control" id="<?php echo form_error('password') ? 'inputError' : '' ?>" placeholder="Password">
+                                        <input type="password" name="password" class="form-control <?php echo form_error('password') ? 'inputError' : '' ?>" id="password" placeholder="Password">
                                     <div class="invalid-feedback">
                                         <?php echo form_error('password') ?>
                                     </div>

@@ -12,7 +12,7 @@
 			<div class="row">
 				<?php $this->load->view('_includes/breadcrumb'); ?>
 				<div class="col-lg-12">
-					<h1 class="page-header"><?php echo ucfirst($this->uri->segment(3));?></h1>
+					<h1 class="page-header">Lihat data buku tamu : <?php echo ucfirst($this->uri->segment(3));?></h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -27,13 +27,11 @@
 							<div class="row">
 								<!-- /.col-lg-6 (nested) -->
 								<div class="col-lg-6">
-									<h1>Lihat data</h1>
 									<?php if($this->session->flashdata('success')) : ?>
 									<div class="alert alert-success alert-dismissable">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>
 									</div>
 									<?php endif; ?>
-									<form role="form" action="" method="get" enctype="multipart/form-data">
 										<div class="form-group <?php echo form_error('kode') ? 'has-error' : '' ?>">
 											<label class="control-label">Kode* :</label>
 											<input type="text" name="kode" class="form-control" id="<?php echo form_error('kode') ? 'inputWarning' : '' ?>" placeholder="Kode" value="<?php echo $bukutamu->kode; ?>" readonly>
@@ -69,7 +67,9 @@
 												<?php echo form_error('hp') ?>
 											</div>
 										</div>
-										<div class="form-group <?php echo form_error('tujuan') ? 'has-error' : '' ?>">
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group <?php echo form_error('tujuan') ? 'has-error' : '' ?>">
 											<label class="control-label">Tujuan* :</label>
 											<input name="tujuan" class="form-control <?php echo form_error('tujuan') ? 'inputError' : '' ?>" id="tujuan" placeholder="Tujuan" value="<?php echo $bukutamu->tujuan; ?>" readonly>
 											<div class="invalid-feedback">
@@ -90,11 +90,17 @@
 												<?php echo form_error('keperluan') ?>
 											</div>
 										</div>
+										<div class="form-group <?php echo form_error('status') ? 'has-error' : '' ?>">
+											<label class="control-label">Status* :</label>
+											<input type="text" name="status" class="form-control <?php echo form_error('status') ? 'inputError' : '' ?>" id="status" placeholder="Status" value="<?php echo $bukutamu->status; ?>" readonly>
+											<div class="invalid-feedback">
+												<?php echo form_error('status') ?>
+											</div>
+										</div>
 										<div class="form-group <?php echo form_error('ttd') ? 'has-error' : '' ?>">
 											<label class="control-label">TTD* :</label>
 											<img src="<?php echo $bukutamu->ttd; ?>" alt="<?php echo $bukutamu->kode; ?>" width="400px" height="200px"/>
 										</div>
-									</form>
 								</div>
 								<!-- /.col-lg-6 (nested) -->
 							</div>

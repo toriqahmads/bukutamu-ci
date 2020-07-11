@@ -15,7 +15,7 @@
 			<div class="row">
 				<?php $this->load->view('_includes/breadcrumb'); ?>
 				<div class="col-lg-12">
-					<h1 class="page-header"><?php echo ucfirst($this->uri->segment(2) ." ". $this->uri->segment(3));?></h1>
+					<h1 class="page-header">List User</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>

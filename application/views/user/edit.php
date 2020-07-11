@@ -13,7 +13,7 @@
             <div class="row">
                 <?php $this->load->view('_includes/breadcrumb'); ?>
                 <div class="col-lg-12">
-                    <h1 class="page-header"><?php echo ucfirst($this->uri->segment(3));?></h1>
+                    <h1 class="page-header">Edit user : <?php echo ucfirst($user->username);?></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -25,7 +25,7 @@
                             <div class="row">
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
-                                    <h1>Edit data</h1>
+                                	<h1>Ubah Profil</h1>
                                     <?php if($this->session->flashdata('success')) : ?>
                                     <div class="alert alert-success alert-dismissable">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><?php echo $this->session->flashdata('success'); ?>

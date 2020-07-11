@@ -33,6 +33,10 @@ class Bukutamu extends CI_Controller
 				$base64 = 'data:image/' . $type . ';base64,' . base64_encode($ttd);
 
 				$bk->ttd = $base64;
+
+				$phpdate = strtotime($bk->jam_kunjung);
+				$mysqldate = date('d-m-Y H:i:s', $phpdate);
+				$bk->jam_kunjung = $mysqldate;
 			}
 		}
 
@@ -53,6 +57,9 @@ class Bukutamu extends CI_Controller
 			$base64 = 'data:image/' . $type . ';base64,' . base64_encode($ttd);
 
 			$data['bukutamu']->ttd = $base64;
+			$phpdate = strtotime($data['bukutamu']->jam_kunjung);
+			$mysqldate = date('d-m-Y H:i:s', $phpdate);
+			$data['bukutamu']->jam_kunjung = $mysqldate;
 		}
 
 		$this->load->view('bukutamu/edit', $data);
@@ -68,6 +75,9 @@ class Bukutamu extends CI_Controller
 			$base64 = 'data:image/' . $type . ';base64,' . base64_encode($ttd);
 
 			$data['bukutamu']->ttd = $base64;
+			$phpdate = strtotime($data['bukutamu']->jam_kunjung);
+			$mysqldate = date('d-m-Y H:i:s', $phpdate);
+			$data['bukutamu']->jam_kunjung = $mysqldate;
 		}
 
 		$this->load->view('bukutamu/view', $data);
@@ -90,8 +100,11 @@ class Bukutamu extends CI_Controller
 		$post['ttd'] = $ttd;
 
 		if($validation->run()) {
+			$phpdate = strtotime($post['jam_kunjung']);
+			$mysqldate = date('Y-m-d H:i:s', $phpdate);
+			$post['jam_kunjung'] = $mysqldate;
 			$bukutamu->save($post);
-			$this->session->set_flashdata('success','Buku tamu berhasil ditambahkan!');
+			$this->session->set_flashdata('success','Buku tamu berhasil ditambahkan! Kode buku tamu : ' . $post['kode']);
 		}
 
 		$this->load->view('bukutamu/register');
@@ -109,6 +122,9 @@ class Bukutamu extends CI_Controller
 		if(!$data['bukutamu']) show_404();
 
 		if($validation->run()) {
+			$phpdate = strtotime($post['jam_kunjung']);
+			$mysqldate = date('Y-m-d H:i:s', $phpdate);
+			$post['jam_kunjung'] = $mysqldate;
 			$bukutamu->update($post);
 			$this->session->set_flashdata('success','Data buku tamu berhasil diubah!');
 			$data['bukutamu'] = $bukutamu->getByKode($kode);
@@ -119,10 +135,15 @@ class Bukutamu extends CI_Controller
 				$base64 = 'data:image/' . $type . ';base64,' . base64_encode($ttd);
 
 				$data['bukutamu']->ttd = $base64;
+				$phpdate = strtotime($data['bukutamu']->jam_kunjung);
+				$mysqldate = date('d-m-Y H:i:s', $phpdate);
+				$data['bukutamu']->jam_kunjung = $mysqldate;
+				$this->load->view('bukutamu/edit', $data);
 			}
 		}
-
-		$this->load->view('bukutamu/edit', $data);
+		else {
+			redirect(base_url('bukutamu/edit/'.$kode));
+		}
 	}
 
 	public function delete($kode = null, $token = null) {
